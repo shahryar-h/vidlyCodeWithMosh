@@ -20,14 +20,14 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471817",
     title: "Get Out",
-    genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
+    genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Action" },
     numberInStock: 8,
     dailyRentalRate: 3.5,
   },
   {
     _id: "5b21ca3eeb7f6fbccd471819",
     title: "Trip to Italy",
-    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Action" },
     numberInStock: 7,
     dailyRentalRate: 3.5,
   },
