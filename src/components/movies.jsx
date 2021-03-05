@@ -5,6 +5,7 @@ import { getGenres } from "../services/fakeGenreService";
 import { paginate } from "../utils/paginate";
 import Listgroup from "./common/listgroup";
 import MoviesTable from "./moviesTable";
+import { Link } from "react-router-dom";
 import _ from "lodash";
 
 class Movies extends Component {
@@ -35,7 +36,29 @@ class Movies extends Component {
     movies[index].liked = !movies[index].liked;
     this.setState({ movies });
   };
+  handleNew = () => {
+    // this.state.movies.push()
+    console.log(this.state.movies[0]);
+    const newel = {
+      _id: "5b21ca3easdasdzf6fbccd47181b",
+      title: "banana",
+      genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+      numberInStock: 4,
+      dailyRentalRate: 5,
+    };
 
+    let moviesq = [...this.state.movies];
+    let my = moviesq[0];
+    console.log("my id:", my);
+    // console.log(my);
+    moviesq.push("hello");
+    console.log(moviesq);
+    // movies = movies.push();
+    // this.setState((prevState) => ({
+    //   movies: [...prevState.movies, newel],
+    // }));
+    // this.setState({ movies: moviesq });
+  };
   handleDisplay = () => {
     // names = this.state.movies.map((t) => t )
 
@@ -83,6 +106,9 @@ class Movies extends Component {
     return { totalCount: filteredMovies.length, data: movies };
   };
   render() {
+    {
+      this.handleNew();
+    }
     const { length: count } = this.state.movies;
     const {
       currentPage,
@@ -105,7 +131,16 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
+          <Link
+            to="/movies/new"
+            className="btn btn-primary"
+            style={{ marginBotton: 20 }}
+          >
+            New Movie
+          </Link>
+
           <h2>There are {totalCount} available movies!</h2>
+
           <MoviesTable
             movies={movies}
             sortColumn={sortColumn}
